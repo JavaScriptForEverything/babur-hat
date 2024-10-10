@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		title #{title}
+		script(defer type='module' src="/js/pages/product-details.js") 
+	body 
+
+		a(href='/product') Back to Products
+
+		br
+		br
+		
+		h2 Add Review
+		form(name='add-review')
+			div
+				label Review
+				input(type='text' name='review' placeholder='your review')
+		
+		br
+		h2 Products
+		pre
+			div(name='show-products')
+		

@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		title Profile | #{logedInUser.name}
+		script(type="module", src="/js/pages/user/profile.js") 
+	body 
+
+		h1 User Profile: #{logedInUser.name}
+
+		pre= JSON.stringify(logedInUser, null, 2)
+
+		div
+			a(href="/") 
+				button(type="button") Home
+
+		div
+			button(name="logout") Logout 
