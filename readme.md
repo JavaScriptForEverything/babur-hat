@@ -2150,6 +2150,7 @@ POST {{origin}}/api/reports/
 ```
 body {
   "user" : "667e915a3204d8967daaf4a1",                  : It is chats
+  "replyTo": userId,
   "title": "test report 2",
   "message": "this is a sourt summary",
   "description": "long descriptions goes here",
@@ -2163,7 +2164,9 @@ POST {{origin}}/api/reports  				:
 #### Update Report
 ```
 body {
-  "product" : "667e915a3204d8967daaf4a1",     
+  "product" : "667e915a3204d8967daaf4a1",
+"user" : "667e915a3204d8967daaf4a1",
+  "replyTo": userId,    
   "title": "test report 2",                             
   "message": "this is a sourt summary",                
   "description": "long descriptions goes here"
