@@ -2181,6 +2181,8 @@ PATCH {{origin}}/api/reports/:reportId
 
 ## Billing 
 - GET {{origin}}/api/billing-addresses  				: Get All
+- GET {{origin}}/api/users/:userId/billing-addresses  				: Get All bill of particular user
+
 
 - GET {{origin}}/api/billing-addresses/:billingId                  : Get Single 
 
