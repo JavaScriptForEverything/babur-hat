@@ -2179,5 +2179,50 @@ PATCH {{origin}}/api/reports/:reportId
 
 
 
+## Billing 
+- GET {{origin}}/api/billing-addresses  				: Get All
+
+- GET {{origin}}/api/billing-addresses/:billingId                  : Get Single 
+
+- POST {{origin}}/api/billing-addresses                           : To create 
+- PATCH {{origin}}/api/billing-addresses/:billingId               : To Update 
+- DELETE {{origin}}/api/billing-addresses/:billingId               : To Delete
+
+
+#### Add Bill 
+
+```
+body {
+  "user": "66dc3a187b291d4730fbc34f",
+  "name": "String",
+  "phoneNumber": "000000867474",
+  "street": "136/B badda",
+  "city": "Dhaka",
+  "state": "Dhaka",
+  "postalCode": "1212",
+  "country": "Bangladesh",
+  "selectedAddress": true
+}
+
+POST {{origin}}/api/billing-addresses 
+```
+
+
+
+#### Update Bill
+```
+body {
+    "phoneNumber": "01957500605"
+}
+PATCH {{origin}}/api/billing-addresses/:billingId
+```
+
+
+
+
+
+
+
+
 
 
