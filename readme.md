@@ -1653,106 +1653,87 @@ PATCH {{origin}}/api/orders/:orderId
 
 
 
-
-## Payments
+## Online Payments (SSLCommerz)
 - GET /api/payments                             : Get All Payments
-
+- GET /api/users/me/payments                    : Get All Payments of logedInUser
 - GET /api/users/:userId/payments               : Get payments of Single User
+
 - GET /api/payments/:paymentId                  : Get Single Payment
-- PATCH /api/payments/:paymentId 	        : Only Admin (role='admin') can update payment status
+
+- PATCH /api/payments/:paymentId 	        : Update by sslCommerz or admin (role='admin')
 - DELETE /api/payments/:paymentId 	        : Only Admin (role='admin') can delete payment
 
-- POST  /api/payments                           : To Create Cash Payment
-
---- incomplete ---
-- GET   /api/payments/request                   : Get Online Payment Gateway to Pay
-- POST  /api/payments/success/:transactionId    : Online Handled Success
-- POST  /api/payments/cancel/:transactionId     : Online Handled Cancel
+- GET   /api/payments/checkout                  : Get Online Payment Gateway to Pay
+- ...                                           : handled by SSLCommerz (No need to worry about it)
 
 
-#### Cash On Payment
+#### Checkout Route
+
+###### Payment will be completed in 3 steps
+- Step-1: Send Post request with all the required fields                        :=> Checkout Button
+- Step-2: If Step-1 success, then you will get SSL payment link to pay:         :=> Pay Now Button
+- Step-3: Choose your payment method, and on sucess or error you will get json as response
+
 ```
-{
+Step-1: Checkout
+
+body {
+  "user": "671af558a565ad12ab1da774",           : Make sure user has location details before checkout, else force to update
+
   "products": [
     {
-      "product": "667ea9b1df5d6c0e864f1841",
-      "price": 43,
-      "quantity": 3,
-		  "vendor": "667e915a3204d8967daaf4a1",
-			"status": "pending",
-			"vendorPayment": {
-        "vat": 4,
-        "commission": 3,
-        "payableAmount": 200,
-        "profit": 50
-      },
-      "vendorPaymentStatus": "non-paid"
-    },
-    {
-      "product": "667fc61231ae221f0375d86a",
-      "price": 430,
-      "quantity": 2,
-		  "vendor": "667e915a3204d8967daaf4a1",
-			"status": "pending",
-			"vendorPayment": {
-        "vat": 4,
-        "commission": 3,
-        "payableAmount": 200,
-        "profit": 50
-      },
-      "vendorPaymentStatus": "paid"
-
-    },
-    {
-      "product": "667fc61231ae221f0375d86a",
-      "price": 430,
-      "quantity": 2,
-		  "vendor": "667e915a3204d8967daaf4a1",
-			"status": "pending",
-			"vendorPayment": {
-        "vat": 4,
-        "commission": 3,
-        "payableAmount": 200,
-        "profit": 50
-      },
-      "vendorPaymentStatus": "non-paid"
-
+      "vendor": "671af558a565ad12ab1da774",
+      "product": "671bb55bfd15f988ab349791",
+      "price": 100,
+      "quantity": 2
     }
   ],
-  "status": "pending",
+  "totalAmount": 500,
   "currency": "BDT",
-  "paymentType": "cash",
-  "user": "667e915a3204d8967daaf4a1",
+
   "shippingInfo": {
-    "name": "Riajul Islam",
-    "email": "riajul@gmail.com",
+    "name": "riajul islam",
+    "email": "admin@gmail.com",
     "phone": "01957500605",
-    "method": "Courier",
-    "address1": "shipping address",
-    "address2": "",
-    "city": "Dhaka",
-    "state": "Dhaka",
-    "postcode": 1000,
-    "country": "Bangladesh",
-    "deliveryFee": 50
-  },
-  "orderCost": 516,
-  "profit": 100,
-  "brand": "BrandName"
+    "method": "courier",
+    "address1": "hazipara mosjid road ... address",
+    "address2": "more address",
+    "city": "dhaka",
+    "state": "dhaka",
+    "postCode": 1212,
+    "country": "bangladesh",
+    "deliveryFee": 50,
+  	"phone": "01957500605",
+  	"email": "abc@gmail.com"
+  }
+}
+POST {{origin}}/api/payments/checkout           : Get SSLCommerz payment gatewayUrl: apply GET request to that url to online pay
+
+Response:
+{
+  "gatewayUrl": "https://epay-gw.sslcommerz.com/8384b22355bd6639a8d2275a1177e53d9c94e93e"
 }
 
 
-POST {{origin}}/api/payments
+
+Step-2: Pay Now Button
+ - (Get link from Step-1)  By clicking it will be redirect to SSL Payment page
+
+https://sandbox.sslcommerz.com/EasyCheckOut/testcdee090b65f9788648990a6083942c043e8
+
+
+Step-3: Get JSON as response success/error/cancel
+
+{...}
 ```
 
 
-#### To update Cash On PaymentStatus
-```
-body {
-  "status": "completed",                          : ['pending', 'completed', 'shipped', 'cancelled']
-}
-PATCH {{origin}}/api/payments/:paymentId
-```
+
+
+
+
+
+
 
 
 
