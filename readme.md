@@ -943,7 +943,7 @@ body {
 	address2: '',
 	city: '',
 	state: '',
-	postcode: 0000,
+	postCode: 0000,
 	country: '',
   },
 
@@ -977,9 +977,9 @@ body {
   accountNumber: "2434212412",
   routingNumber: "2434212412",
   bankName: "Bank Name",
-  bankBranch: "Bank Branch", 
-  
-  status: "pending", 
+  bankBranch: "Bank Branch",
+
+  status: "pending",
   isFeatured: true,
 }
 
@@ -987,7 +987,7 @@ body {
 - POST {{origin}}/api/auth/register
 ```
 
-#### Update User 
+#### Update User
 ```
 body: {
 	customId: string
@@ -1041,7 +1041,7 @@ body: {
 
 
 
-#### User Login 
+#### User Login
 ```
 body: {
   "email": "riajul@gmail.com",  Or  "email": "01916800154"      (*)
@@ -1053,13 +1053,13 @@ body: {
 
 
 
-#### User Logout 
+#### User Logout
 ```
 - POST {{origin}}/api/auth/logout
 ```
 
 
-#### Update User  
+#### Update User
 ```
 body: {
 	"customId": 'unique-id',
@@ -1075,7 +1075,7 @@ body: {
 		address2: string
 		city: string
 		state: string
-		postcode: number,
+		postCode: number,
 		country: string
 	},
 	otherPermissions : {
@@ -1104,9 +1104,9 @@ body: {
         accountNumber: "2434212412",
         routingNumber: "2434212412",
         bankName: "Bank Name",
-        bankBranch: "Bank Branch", 
+        bankBranch: "Bank Branch",
 
-        status: "pending", 
+        status: "pending",
 }
 
 - PATCH {{origin}}/api/users/6649ebc8dabbe03d553861f9
@@ -1149,7 +1149,7 @@ body: {
 ```
 
 
-#### Delete User 
+#### Delete User
 ```
 - DELETE {{origin}}/api/users/me
 - DELETE {{origin}}/api/users/6649ebc8dabbe03d553861f9
@@ -1199,7 +1199,7 @@ image.addEventListener('change', async (evt) => {
 })
 ```
 
-- Upload image on File Storage : Hard Dist 
+- Upload image on File Storage : Hard Dist
 - if file upload `maxSize`, cross limit then file upload will be failed with throwing error to user
 - only user himself or admin user can update or delete other user
 
@@ -1229,7 +1229,7 @@ DELETE /api/users 	: Only user himself or admin can delete other users
 - GET {{origin}}/api/vouchers/:voucherId        // Get Single Voucher by (_id), not client's voucherId
 
 - POST {{origin}}/api/vouchers                  // To create voucher
-- PATCH {{origin}}/api/vouchers/:voucherId      // To Update 
+- PATCH {{origin}}/api/vouchers/:voucherId      // To Update
 - DELETE {{origin}}/api/vouchers/:voucherId     // To Delete
 
 
@@ -1281,7 +1281,7 @@ PATCH {{origin}}/api/vouchers/:voucherId
 - GET {{origin}}/api/categories/:categoryId             // Get Single Category by categoryId
 
 - POST {{origin}}/api/categories                        // To create category
-- PATCH {{origin}}/api/categories/:categoryId           // To Update 
+- PATCH {{origin}}/api/categories/:categoryId           // To Update
 - DELETE {{origin}}/api/categories/:categoryId          // To Delete
 
 
@@ -1340,7 +1340,7 @@ PATCH {{origin}}/api/categories/:categoryId
 - GET {{origin}}/api/sub-categories/:subCategoryId     // Get Single subCategory by subCategoryId
 
 - POST {{origin}}/api/sub-categories                    // To create subCategory
-- PATCH {{origin}}/api/sub-categories/:subCategoryId    // To Update 
+- PATCH {{origin}}/api/sub-categories/:subCategoryId    // To Update
 - DELETE {{origin}}/api/sub-categories/:subCategoryId   // To Delete
 
 
@@ -1390,12 +1390,12 @@ PATCH {{origin}}/api/sub-categories/:subCategoryId
 
 
 ## Packages
-- GET {{origin}}/api/packages 		        
-- GET {{origin}}/api/packages/:packageId       
+- GET {{origin}}/api/packages
+- GET {{origin}}/api/packages/:packageId
 
-- POST {{origin}}/api/packages                
-- PATCH {{origin}}/api/packages/:packageId   
-- DELETE {{origin}}/api/packages/:packageId 
+- POST {{origin}}/api/packages
+- PATCH {{origin}}/api/packages/:packageId
+- DELETE {{origin}}/api/packages/:packageId
 
 
 
@@ -1409,7 +1409,7 @@ body {
   "price": 300,
   "maxProduct": 10
   "image: "data:image/jpg;a3wwra...",
-  "description": "any description",   
+  "description": "any description",
 }
 
 POST {{origin}}/api/packages
@@ -1421,34 +1421,34 @@ POST {{origin}}/api/packages
 #### Update Package
 ```
 body {
-  "name": "package name 2",        
+  "name": "package name 2",
   "status": "active",
   "duration": 5,
   "price": 300,
   "maxProduct": 10
   "image: "data:image/jpg;a3wwra...",
-  "description": "any description",   
+  "description": "any description",
 }
 PATCH {{origin}}/api/packages/:packageId
 ```
 
 
-## PackageProducts      (To add selecteProduct into packages.packageProducts)                         
-- GET {{origin}}/api/package-products 		                # get all 
-- GET {{origin}}/api/package-products/:packageProductId         # Get Single 
+## PackageProducts      (To add selecteProduct into packages.packageProducts)
+- GET {{origin}}/api/package-products 		                # get all
+- GET {{origin}}/api/package-products/:packageProductId         # Get Single
 
-- POST {{origin}}/api/package-products                          # To create 
-- PATCH {{origin}}/api/package-products/:packageProductId       # To Update 
+- POST {{origin}}/api/package-products                          # To create
+- PATCH {{origin}}/api/package-products/:packageProductId       # To Update
 - DELETE {{origin}}/api/package-products/:packageProductId      # To Delete
 
 
-#### Add PackageProuct 
+#### Add PackageProuct
 ```
 body {
   "user" : "667e915a3204d8967daaf4a1",                  (*)
   "product" : "667ea9b1df5d6c0e864f1841",               (*)
   "package" : "66c1f8ca97074e09b1ee95b6",               (*)
-  "name" : "package one"                                 
+  "name" : "package one"
 }
 
 POST {{origin}}/package-products/:packageProductId
@@ -1527,22 +1527,22 @@ body {
 
   "price": 525,
   "currency": "BDT",
-  "paymentType":  "cash-on-delivery",  
-  "status": "pending", 
+  "paymentType":  "cash-on-delivery",
+  "status": "pending",
 
   "shippingInfo" : {
     "name": "riajul islam",
     "email": "riajul@gmail.com",
     "phone": "01957500605",
-    
+
     "method": "Courier",
     "address1": "shipping address",
     "address2": "",
     "city": "Dhaka",
     "state": "Dhaka",
-    "postcode": 1000,
+    "postCode": 1000,
     "country": "Bangladesh",
-    
+
     "deliveryFee": 40
   },
 
@@ -1567,25 +1567,25 @@ body [
     "product" : "667ea9b1df5d6c0e864f1841",
     "variantId" : "667ea9b1df5d6c0e864f1814",
     "transactionId" : "UniqueId",                         : Unique Id, but same for product one
-  
+
     "price": 525,
     "currency": "BDT",
-    "paymentType":  "cash-on-delivery",  
-    "status": "pending", 
-  
+    "paymentType":  "cash-on-delivery",
+    "status": "pending",
+
     "shippingInfo" : {
       "name": "riajul islam",
       "email": "riajul@gmail.com",
       "phone": "01957500605",
-      
+
       "method": "Courier",
       "address1": "shipping address",
       "address2": "",
       "city": "Dhaka",
       "state": "Dhaka",
-      "postcode": 1000,
+      "postCode": 1000,
       "country": "Bangladesh",
-      
+
       "deliveryFee": 40
     },
 
@@ -1604,26 +1604,26 @@ body [
     "vendor": "66cb6175017d8682d2b9e6ef",
     "product" : "667ea9b1df5d6c0e864f1841",
     "variantId" : "667ea9b1df5d6c0e864f1814",
-    "transactionId" : "UniqueId",                         : Unique Id, but same for 2nd product 
-  
+    "transactionId" : "UniqueId",                         : Unique Id, but same for 2nd product
+
     "price": 525,
     "currency": "BDT",
-    "paymentType":  "cash-on-delivery",  
-    "status": "pending", 
-  
+    "paymentType":  "cash-on-delivery",
+    "status": "pending",
+
     "shippingInfo" : {
       "name": "riajul islam",
       "email": "riajul@gmail.com",
       "phone": "01957500605",
-      
+
       "method": "Courier",
       "address1": "shipping address",
       "address2": "",
       "city": "Dhaka",
       "state": "Dhaka",
-      "postcode": 1000,
+      "postCode": 1000,
       "country": "Bangladesh",
-      
+
       "deliveryFee": 40
     },
 
@@ -1651,6 +1651,108 @@ PATCH {{origin}}/api/orders/:orderId
 ```
 
 
+
+
+
+## Payments
+- GET /api/payments                             : Get All Payments
+
+- GET /api/users/:userId/payments               : Get payments of Single User
+- GET /api/payments/:paymentId                  : Get Single Payment
+- PATCH /api/payments/:paymentId 	        : Only Admin (role='admin') can update payment status
+- DELETE /api/payments/:paymentId 	        : Only Admin (role='admin') can delete payment
+
+- POST  /api/payments                           : To Create Cash Payment
+
+--- incomplete ---
+- GET   /api/payments/request                   : Get Online Payment Gateway to Pay
+- POST  /api/payments/success/:transactionId    : Online Handled Success
+- POST  /api/payments/cancel/:transactionId     : Online Handled Cancel
+
+
+#### Cash On Payment
+```
+{
+  "products": [
+    {
+      "product": "667ea9b1df5d6c0e864f1841",
+      "price": 43,
+      "quantity": 3,
+		  "vendor": "667e915a3204d8967daaf4a1",
+			"status": "pending",
+			"vendorPayment": {
+        "vat": 4,
+        "commission": 3,
+        "payableAmount": 200,
+        "profit": 50
+      },
+      "vendorPaymentStatus": "non-paid"
+    },
+    {
+      "product": "667fc61231ae221f0375d86a",
+      "price": 430,
+      "quantity": 2,
+		  "vendor": "667e915a3204d8967daaf4a1",
+			"status": "pending",
+			"vendorPayment": {
+        "vat": 4,
+        "commission": 3,
+        "payableAmount": 200,
+        "profit": 50
+      },
+      "vendorPaymentStatus": "paid"
+
+    },
+    {
+      "product": "667fc61231ae221f0375d86a",
+      "price": 430,
+      "quantity": 2,
+		  "vendor": "667e915a3204d8967daaf4a1",
+			"status": "pending",
+			"vendorPayment": {
+        "vat": 4,
+        "commission": 3,
+        "payableAmount": 200,
+        "profit": 50
+      },
+      "vendorPaymentStatus": "non-paid"
+
+    }
+  ],
+  "status": "pending",
+  "currency": "BDT",
+  "paymentType": "cash",
+  "user": "667e915a3204d8967daaf4a1",
+  "shippingInfo": {
+    "name": "Riajul Islam",
+    "email": "riajul@gmail.com",
+    "phone": "01957500605",
+    "method": "Courier",
+    "address1": "shipping address",
+    "address2": "",
+    "city": "Dhaka",
+    "state": "Dhaka",
+    "postCode": 1000,
+    "country": "Bangladesh",
+    "deliveryFee": 50
+  },
+  "orderCost": 516,
+  "profit": 100,
+  "brand": "BrandName"
+}
+
+
+POST {{origin}}/api/payments
+```
+
+
+#### To update Cash On PaymentStatus
+```
+body {
+  "status": "completed",                          : ['pending', 'completed', 'shipped', 'cancelled']
+}
+PATCH {{origin}}/api/payments/:paymentId
+```
 
 
 ## Online Payments (SSLCommerz)
@@ -1684,8 +1786,19 @@ body {
     {
       "vendor": "671af558a565ad12ab1da774",
       "product": "671bb55bfd15f988ab349791",
+      "productVariantId": "6649eb35dabbe03d553861f0",
       "price": 100,
-      "quantity": 2
+      "quantity": 2,
+
+      "vendorPayment": {
+        "vat": 4,
+        "commission": 3,
+        "payableAmount": 200,
+        "profit": 50
+  	"transactionCost": 50,
+  	"shippingCharge": 50,
+  	"vendorPaid": "unpaid",
+      },
     }
   ],
   "totalAmount": 500,
@@ -1703,8 +1816,8 @@ body {
     "postCode": 1212,
     "country": "bangladesh",
     "deliveryFee": 50,
-  	"phone": "01957500605",
-  	"email": "abc@gmail.com"
+    "phone": "01957500605",
+    "email": "abc@gmail.com"
   }
 }
 POST {{origin}}/api/payments/checkout           : Get SSLCommerz payment gatewayUrl: apply GET request to that url to online pay
@@ -1713,8 +1826,6 @@ Response:
 {
   "gatewayUrl": "https://epay-gw.sslcommerz.com/8384b22355bd6639a8d2275a1177e53d9c94e93e"
 }
-
-
 
 Step-2: Pay Now Button
  - (Get link from Step-1)  By clicking it will be redirect to SSL Payment page
@@ -1733,18 +1844,12 @@ Step-3: Get JSON as response success/error/cancel
 
 
 
-
-
-
-
-
-
 ## Messaging
 I used ***socket.io*** for messaging, if need socket.io client in `frontend`
 so you have 2 ways to do so
 
-1. you can get eighter by `socket.io-client` npm package or 
-2. you can add add bellow link on your page 
+1. you can get eighter by `socket.io-client` npm package or
+2. you can add add bellow link on your page
 
 ```
 		<script defer src='{{origin}}/socket.io/socket.io.js'> </script>
@@ -1759,11 +1864,11 @@ See the Messaging Example: `/public/js/pages/user/message.js`
 
 
 ## Others | Banner, ...othes non-related fields
-- GET {{origin}}/api/others 		    // get all 
-- GET {{origin}}/api/others/:otherId        // Get Single 
+- GET {{origin}}/api/others 		    // get all
+- GET {{origin}}/api/others/:otherId        // Get Single
 
-- POST {{origin}}/api/others                // To create 
-- PATCH {{origin}}/api/others/:otherId      // To Update 
+- POST {{origin}}/api/others                // To create
+- PATCH {{origin}}/api/others/:otherId      // To Update
 - DELETE {{origin}}/api/others/:otherId     // To Delete
 
 
@@ -1810,11 +1915,11 @@ PATCH {{origin}}/api/other/:otherId
 
 
 ## Events
-- GET {{origin}}/api/events 		    // get all 
-- GET {{origin}}/api/events/:eventId        // Get Single 
+- GET {{origin}}/api/events 		    // get all
+- GET {{origin}}/api/events/:eventId        // Get Single
 
-- POST {{origin}}/api/events                // To create 
-- PATCH {{origin}}/api/events/:eventId      // To Update 
+- POST {{origin}}/api/events                // To create
+- PATCH {{origin}}/api/events/:eventId      // To Update
 - DELETE {{origin}}/api/events/:eventId     // To Delete
 
 ### Event Document Sample:
@@ -1859,7 +1964,7 @@ PATCH {{origin}}/api/other/:otherId
 }
 ```
 
-#### Add Event 
+#### Add Event
 ```
 body {
   "user": "user._id",                                   (*)
@@ -1868,7 +1973,7 @@ body {
   "status": "status",                                   (*)
   "startDate": "new Date( Date.now() )",
   "endDate": "new Date( Date.now() + 1000 * 60 * 60 * 5)",
-  "description": "any description",   
+  "description": "any description",
   "price": 200
 }
 
@@ -1884,7 +1989,7 @@ body {
   "status": "status",
   "startDate": "new Date( Date.now() )",
   "endDate": "new Date( Date.now() + 1000 * 60 * 60 * 5)",
-  "description": "any description",   
+  "description": "any description",
   "price": 200
 }
 PATCH {{origin}}/events/:eventId
@@ -1895,22 +2000,22 @@ PATCH {{origin}}/events/:eventId
 
 
 
-## EventProducts      (To add selecteProduct into events.eventProducts)                         
-- GET {{origin}}/api/event-products 		        // get all 
-- GET {{origin}}/api/event-products/:eventProductId     // Get Single 
+## EventProducts      (To add selecteProduct into events.eventProducts)
+- GET {{origin}}/api/event-products 		        // get all
+- GET {{origin}}/api/event-products/:eventProductId     // Get Single
 
-- POST {{origin}}/api/event-products                    // To create 
-- PATCH {{origin}}/api/event-products/:eventProductId   // To Update 
+- POST {{origin}}/api/event-products                    // To create
+- PATCH {{origin}}/api/event-products/:eventProductId   // To Update
 - DELETE {{origin}}/api/event-products/:eventProductId  // To Delete
 
 
-#### Add EventProuct 
+#### Add EventProuct
 ```
 body {
   "user" : "667e915a3204d8967daaf4a1",                  (*)
   "product" : "667ea9b1df5d6c0e864f1841",               (*)
   "event" : "66c1f8ca97074e09b1ee95b6",                 (*)
-  "name" : "events two"                                 
+  "name" : "events two"
 }
 
 POST {{origin}}/event-products/:eventProductId
@@ -1948,15 +2053,15 @@ POST {{origin}}/api/event-products/many                 : To get multiple event 
 
 
 ## Finance
-- GET {{origin}}/api/finances 		        // get all 
-- GET {{origin}}/api/finances/:financeId        // Get Single 
+- GET {{origin}}/api/finances 		        // get all
+- GET {{origin}}/api/finances/:financeId        // Get Single
 
-- POST {{origin}}/api/finances                  // To create 
-- PATCH {{origin}}/api/finances/:financeId      // To Update 
+- POST {{origin}}/api/finances                  // To create
+- PATCH {{origin}}/api/finances/:financeId      // To Update
 - DELETE {{origin}}/api/finances/:financeId     // To Delete
 
 
-#### Add Finance 
+#### Add Finance
 ```
 body {
   "user": "user._id",                                   (*)
@@ -1994,15 +2099,15 @@ PATCH {{origin}}/finances/:financeId
 
 
 ## Payable Payments
-- GET {{origin}}/api/payablePayments 		                // get all 
-- GET {{origin}}/api/payablePayments/:payablePaymentId          // Get Single 
+- GET {{origin}}/api/payablePayments 		                // get all
+- GET {{origin}}/api/payablePayments/:payablePaymentId          // Get Single
 
-- POST {{origin}}/api/payablePayments                           // To create 
-- PATCH {{origin}}/api/payablePayments/:payablePaymentId        // To Update 
+- POST {{origin}}/api/payablePayments                           // To create
+- PATCH {{origin}}/api/payablePayments/:payablePaymentId        // To Update
 - DELETE {{origin}}/api/payablePayments/:payablePaymentId       // To Delete
 
 
-#### Add PayablePayment 
+#### Add PayablePayment
 ```
 body {
   "user": "user._id",                                   (*)
@@ -2042,20 +2147,20 @@ PATCH {{origin}}/payablePayments/:payablePaymentId
 
 
 ## Delivery-fees
-- GET {{origin}}/api/delivery-fees 		        // get all 
-- GET {{origin}}/api/delivery-fees/:deliveryFeeId       // Get Single 
+- GET {{origin}}/api/delivery-fees 		        // get all
+- GET {{origin}}/api/delivery-fees/:deliveryFeeId       // Get Single
 
-- POST {{origin}}/api/delivery-fees                     // To create 
-- PATCH {{origin}}/api/delivery-fees/:deliveryFeeId     // To Update 
+- POST {{origin}}/api/delivery-fees                     // To create
+- PATCH {{origin}}/api/delivery-fees/:deliveryFeeId     // To Update
 - DELETE {{origin}}/api/delivery-fees/:deliveryFeeId    // To Delete
 
 - GET {{origin}}/api/delivery-fees/reset                // (Admin Only) Reset to default 64 entry
-- GET {{origin}}/api/delivery-fees?_limit=64 		// get 64 document only 
+- GET {{origin}}/api/delivery-fees?_limit=64 		// get 64 document only
 
 - PATCH {{origin}}/delivery-fees/update-many            // To update multiple fees
 
 
-#### Add Delivery-fee 
+#### Add Delivery-fee
 ```
 {
   "district" : "rajshahi",                              (*)
@@ -2101,24 +2206,24 @@ PATCH {{origin}}/delivery-fees/update-many
 ## Report
 - GET {{origin}}/api/reports  				: Get All Reports + Chats
 - GET {{origin}}/api/reports?reportsOnly=true 		: Only Get reports
-- GET {{origin}}/api/reports?chatsOnly=true 		: Only Get chats 
+- GET {{origin}}/api/reports?chatsOnly=true 		: Only Get chats
 
-- GET {{origin}}/api/reports/:reportId                  : Get Single 
+- GET {{origin}}/api/reports/:reportId                  : Get Single
 
-- POST {{origin}}/api/reports                           : To create 
-- PATCH {{origin}}/api/reports/:reportId                : To Update 
+- POST {{origin}}/api/reports                           : To create
+- PATCH {{origin}}/api/reports/:reportId                : To Update
 - DELETE {{origin}}/api/reports/:reportId               : To Delete
 
 
-#### Add Report 
+#### Add Report
 If product._id exists in while creating report, it will be product report,
 else it will can be used for personal chats, between users  (user and admin)
 
 ```
 body {
   "product" : "667e915a3204d8967daaf4a1",               : It is report about product (because productId exits)
-
   "user" : "667e915a3204d8967daaf4a1",                  (*)
+  "replyTo" : "667e915a3204d8967daaf4a1",
   "title": "test report 2",                             (*)
   "message": "this is a sourt summary",                 (*)
   "description": "long descriptions goes here"
@@ -2136,7 +2241,7 @@ body {
   "description": "long descriptions goes here",
   "image": "data://..."
 }
-POST {{origin}}/api/reports  				: 
+POST {{origin}}/api/reports  				:
 ```
 
 
@@ -2144,14 +2249,15 @@ POST {{origin}}/api/reports  				:
 #### Update Report
 ```
 body {
-  "product" : "667e915a3204d8967daaf4a1",     
-  "title": "test report 2",                             
-  "message": "this is a sourt summary",                
+  "product" : "667e915a3204d8967daaf4a1",
+  "title": "test report 2",
+  "message": "this is a sourt summary",
   "description": "long descriptions goes here"
   "image" : "data:image/jpg,aksdjadjf"
 }
-PATCH {{origin}}/api/reports/:reportId 
+PATCH {{origin}}/api/reports/:reportId
 ```
+
 
 
 
