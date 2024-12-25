@@ -1692,24 +1692,23 @@ PATCH {{origin}}/api/orders/:orderId
       "product": "667fc61231ae221f0375d86a",
       "price": 430,
       "quantity": 2,
-		  "vendor": "667e915a3204d8967daaf4a1",
-			"status": "pending",
-			"vendorPayment": {
+      "vendor": "667e915a3204d8967daaf4a1",
+      "status": "pending",
+      "vendorPayment": {
         "vat": 4,
         "commission": 3,
         "payableAmount": 200,
         "profit": 50
       },
       "vendorPaymentStatus": "paid"
-
     },
     {
       "product": "667fc61231ae221f0375d86a",
       "price": 430,
       "quantity": 2,
-		  "vendor": "667e915a3204d8967daaf4a1",
-			"status": "pending",
-			"vendorPayment": {
+      "vendor": "667e915a3204d8967daaf4a1",
+      "status": "pending",
+      "vendorPayment": {
         "vat": 4,
         "commission": 3,
         "payableAmount": 200,
@@ -1781,44 +1780,39 @@ Step-1: Checkout
 
 body {
   "user": "671af558a565ad12ab1da774",           : Make sure user has location details before checkout, else force to update
-
-  "products": [
-    {
-      "vendor": "671af558a565ad12ab1da774",
-      "product": "671bb55bfd15f988ab349791",
-      "productVariantId": "6649eb35dabbe03d553861f0",
+  "products": [ 
+    { 
+      "vendor": "6649e861c74ab9431356dce9",
+      "product": "6649eb35dabbe03d553861f0",
+      "productVariantId": "6649eb35dabbe03d553861f0", 
       "price": 100,
-      "quantity": 2,
-
-      "vendorPayment": {
-        "vat": 4,
-        "commission": 3,
-        "payableAmount": 200,
-        "profit": 50
-  	"transactionCost": 50,
-  	"shippingCharge": 50,
-  	"vendorPaid": "unpaid",
-      },
+      "quantity": 2
     }
-  ],
-  "totalAmount": 500,
+   ],
+  "totalAmount": 300,
   "currency": "BDT",
-
-  "shippingInfo": {
-    "name": "riajul islam",
-    "email": "admin@gmail.com",
-    "phone": "01957500605",
-    "method": "courier",
-    "address1": "hazipara mosjid road ... address",
-    "address2": "more address",
-    "city": "dhaka",
-    "state": "dhaka",
-    "postCode": 1212,
-    "country": "bangladesh",
-    "deliveryFee": 50,
+  "shippingInfo" : {
+    "name": "user another name for shipping",
+    "method": "Courier",
+    "address1": "shipping address",
+    "address2": "",
+    "city": "Dhaka",
+    "state": "Dhaka",
+    "postCode": 1000,
+    "country": "Bangladesh",
+    "deliveryFee" : 50,
     "phone": "01957500605",
     "email": "abc@gmail.com"
-  }
+  },
+  "vendorPayment": {
+    "vat":20,
+    "commission":20,
+    "payableAmount":20,
+    "profit":20,
+    "transactionCost":20,
+    "shippingCharge":20,
+    "vendorPaid":"unpaid"    
+  } 
 }
 POST {{origin}}/api/payments/checkout           : Get SSLCommerz payment gatewayUrl: apply GET request to that url to online pay
 
